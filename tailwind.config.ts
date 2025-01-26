@@ -69,7 +69,7 @@ export default {
         },
         "glow": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+          "50%": { opacity: "0.6" },
         },
         "pulse-border": {
           "0%, 100%": { borderColor: "transparent" },
@@ -81,16 +81,16 @@ export default {
         },
         "pulse-scale": {
           "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.05)" },
+          "50%": { transform: "scale(1.03)" },
         },
       },
       animation: {
         "float": "float 6s ease-in-out infinite",
         "float-reverse": "float-reverse 7s ease-in-out infinite",
-        "glow": "glow 2s ease-in-out infinite",
-        "pulse-border": "pulse-border 2s ease-in-out infinite",
-        "rotate-slow": "rotate-slow 12s linear infinite",
-        "pulse-scale": "pulse-scale 4s ease-in-out infinite",
+        "glow": "glow 4s ease-in-out infinite",
+        "pulse-border": "pulse-border 4s ease-in-out infinite",
+        "rotate-slow": "rotate-slow 20s linear infinite",
+        "pulse-scale": "pulse-scale 6s ease-in-out infinite",
       },
     },
   },
