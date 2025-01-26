@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Cpu, Globe } from "lucide-react";
+import { Code2, Cpu, Globe, Rocket, Shield, Zap } from "lucide-react";
 
 const About = () => {
   return (
@@ -18,18 +18,33 @@ const About = () => {
           {[
             {
               icon: Code2,
-              title: "Digital Innovation",
-              description: "Pushing the boundaries of web development with cutting-edge technologies",
+              title: "Next-Gen Development",
+              description: "Crafting websites with cutting-edge technologies like React, Next.js, and Web3 integration for future-ready digital experiences.",
             },
             {
               icon: Globe,
-              title: "Global Reach",
-              description: "Creating digital experiences that resonate worldwide",
+              title: "Global Innovation Hub",
+              description: "Serving clients worldwide with 24/7 support and localized solutions. Over 500+ successful projects delivered across 30+ countries.",
             },
             {
               icon: Cpu,
-              title: "Future Tech",
-              description: "Embracing the latest trends in digital transformation",
+              title: "AI-Powered Solutions",
+              description: "Leveraging artificial intelligence and machine learning to create smart, adaptive websites that evolve with your business needs.",
+            },
+            {
+              icon: Rocket,
+              title: "Lightning Performance",
+              description: "Optimized for speed with sub-second load times and perfect Google Lighthouse scores for maximum user engagement.",
+            },
+            {
+              icon: Shield,
+              title: "Enterprise Security",
+              description: "Bank-grade security protocols and regular penetration testing to keep your digital assets safe and compliant.",
+            },
+            {
+              icon: Zap,
+              title: "Rapid Deployment",
+              description: "Quick turnaround times with our agile development process. From concept to launch in weeks, not months.",
             },
           ].map((item, index) => (
             <motion.div

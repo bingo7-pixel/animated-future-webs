@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, Phone } from "lucide-react";
+import { Mail, MessageSquare, Phone, MapPin, Clock, Globe } from "lucide-react";
+
+const contactInfo = {
+  email: "hello@futureweb.com",
+  phone: "+1 (555) 123-4567",
+  address: "123 Innovation Drive, Silicon Valley, CA 94025",
+  hours: "Mon-Fri: 9:00 AM - 6:00 PM PST",
+  social: {
+    twitter: "@futureweb",
+    linkedin: "futureweb-company",
+    github: "futureweb-dev"
+  }
+};
 
 const Contact = () => {
   return (
@@ -22,15 +34,21 @@ const Contact = () => {
             className="space-y-8"
           >
             {[
-              { icon: Mail, text: "info@futureweb.com" },
-              { icon: Phone, text: "+1 (555) 123-4567" },
-              { icon: MessageSquare, text: "Live Chat Available" },
+              { icon: Mail, text: contactInfo.email, label: "Email Us" },
+              { icon: Phone, text: contactInfo.phone, label: "Call Us" },
+              { icon: MapPin, text: contactInfo.address, label: "Visit Us" },
+              { icon: Clock, text: contactInfo.hours, label: "Business Hours" },
+              { icon: Globe, text: "Global Service Available", label: "Coverage" },
+              { icon: MessageSquare, text: "24/7 Live Chat Support", label: "Chat" },
             ].map((item, index) => (
               <div key={index} className="flex items-center space-x-4">
                 <div className="w-12 h-12 rounded-full bg-neon-blue/10 flex items-center justify-center">
                   <item.icon className="w-6 h-6 text-neon-blue" />
                 </div>
-                <span className="text-gray-300">{item.text}</span>
+                <div>
+                  <h3 className="text-neon-purple font-semibold">{item.label}</h3>
+                  <span className="text-gray-300">{item.text}</span>
+                </div>
               </div>
             ))}
           </motion.div>
@@ -52,6 +70,15 @@ const Contact = () => {
                 placeholder="Your Email"
                 className="w-full px-4 py-3 bg-black/50 border border-neon-blue/20 rounded-lg focus:border-neon-blue/50 transition-colors duration-300 outline-none text-white"
               />
+              <select
+                className="w-full px-4 py-3 bg-black/50 border border-neon-blue/20 rounded-lg focus:border-neon-blue/50 transition-colors duration-300 outline-none text-white"
+              >
+                <option value="">Select Service</option>
+                <option value="web-development">Web Development</option>
+                <option value="ui-design">UI/UX Design</option>
+                <option value="ecommerce">E-commerce Solutions</option>
+                <option value="maintenance">Maintenance & Support</option>
+              </select>
               <textarea
                 placeholder="Your Message"
                 rows={4}
