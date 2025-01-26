@@ -37,13 +37,20 @@ const posts = [
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-20 relative">
+    <section id="blog" className="py-20 relative overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 via-transparent to-transparent animate-pulse-scale"
+      />
+
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent"
+          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent animate-glow"
         >
           Latest Insights
         </motion.h2>
@@ -55,29 +62,61 @@ const Blog = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative"
+              whileHover={{ scale: 1.05 }}
+              className="group relative animate-float"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="overflow-hidden rounded-lg">
-                <img
+                <motion.img
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover"
                 />
               </div>
-              <div className="p-6 bg-black/50 backdrop-blur-sm border border-neon-blue/20 rounded-b-lg">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="p-6 bg-black/50 backdrop-blur-sm border border-neon-blue/20 rounded-b-lg"
+              >
                 <div className="flex items-center justify-between mb-2">
-                  <time className="text-neon-blue text-sm">{post.date}</time>
+                  <motion.time
+                    whileHover={{ scale: 1.1 }}
+                    className="text-neon-blue text-sm animate-pulse"
+                  >
+                    {post.date}
+                  </motion.time>
                   <span className="text-gray-400 text-sm">{post.readTime}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-neon-blue transition-colors duration-300">
+                <motion.h3
+                  whileHover={{ scale: 1.02 }}
+                  className="text-xl font-semibold mb-2 text-white group-hover:text-neon-blue transition-colors duration-300"
+                >
                   {post.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{post.excerpt}</p>
-                <div className="flex items-center">
-                  <span className="text-neon-purple text-sm">By {post.author}</span>
-                </div>
-              </div>
-              <div className="absolute inset-0 border-2 border-neon-blue/0 group-hover:border-neon-blue/50 transition-colors duration-300 rounded-lg" />
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0.8 }}
+                  whileHover={{ opacity: 1 }}
+                  className="text-gray-400 mb-4"
+                >
+                  {post.excerpt}
+                </motion.p>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center"
+                >
+                  <span className="text-neon-purple text-sm animate-pulse">By {post.author}</span>
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="absolute inset-0 border-2 border-neon-blue/0 group-hover:border-neon-blue/50 transition-colors duration-300 rounded-lg animate-pulse-border"
+              />
             </motion.article>
           ))}
         </div>

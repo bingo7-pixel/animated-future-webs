@@ -3,13 +3,20 @@ import { Code2, Cpu, Globe, Rocket, Shield, Zap } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20 relative overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 via-transparent to-transparent animate-pulse-scale"
+      />
+
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent"
+          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent animate-glow"
         >
           About Us
         </motion.h2>
@@ -52,11 +59,18 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative group"
+              whileHover={{ scale: 1.05 }}
+              className="relative group animate-float"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="p-6 rounded-lg bg-black/50 border border-neon-blue/20 backdrop-blur-sm group-hover:border-neon-blue/50 transition-colors duration-300">
-                <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-                <item.icon className="w-12 h-12 text-neon-blue mb-4 animate-glow" />
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg animate-pulse-scale" />
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <item.icon className="w-12 h-12 text-neon-blue mb-4 animate-glow" />
+                </motion.div>
                 <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
                 <p className="text-gray-400">{item.description}</p>
               </div>
